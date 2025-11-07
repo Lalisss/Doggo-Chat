@@ -1,21 +1,14 @@
 <script>
+window.onload = function() {
   const chatBox = document.getElementById('chatBox');
   const input = document.getElementById('userInput');
   const btn = document.getElementById('sendBtn');
-
   const dogReplies = [
-    "คิดถึงจัง",
-    "คิดถึงมากๆ",
-    "รักเบบี๋",
-    "รักนะคะพี่คนสวยขา",
-    "รักมากๆๆๆๆๆๆๆๆๆ",
-    "ทำไมสวยจังคะ",
-    "คิดถึงง่าาาาาาาาาา",
-    "อยากเจอแล้ว",
-    "หนูรักพี่มากๆนะคะรู้มั้ย"
+    "คิดถึงจัง", "คิดถึงมากๆ", "รักเบบี๋", "รักนะคะพี่คนสวยขา",
+    "รักมากๆๆๆๆๆๆๆๆๆ", "ทำไมสวยจังคะ", "คิดถึงง่าาาาาาาาาา",
+    "อยากเจอแล้ว", "หนูรักพี่มากๆนะคะรู้มั้ย"
   ];
-
-  let lastReplyIndex = -1; // เก็บตำแหน่งข้อความล่าสุด
+  let lastReplyIndex = -1;
 
   function addMessage(text, sender) {
     const msg = document.createElement('div');
@@ -31,7 +24,6 @@
       newIndex = Math.floor(Math.random() * dogReplies.length);
     } while (newIndex === lastReplyIndex && dogReplies.length > 1);
     lastReplyIndex = newIndex;
-
     const reply = dogReplies[newIndex];
     setTimeout(() => addMessage(reply, 'doggo'), 800);
   }
@@ -49,7 +41,6 @@
     if (e.key === 'Enter') sendMsg();
   });
 
-  // floating paw prints (แทนหัวใจ)
   const hearts = document.getElementById('hearts');
   function spawnHeart() {
     const paw = document.createElement('div');
@@ -61,4 +52,5 @@
     setTimeout(()=>paw.remove(), 6000);
   }
   setInterval(spawnHeart, 600);
+};
 </script>
